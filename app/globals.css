@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-royal-red to-nepali-crimson text-white px-8 py-3 rounded-full font-semibold
+    transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-royal-gold/50
+    active:scale-95 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-royal-gold text-royal-black px-8 py-3 rounded-full font-semibold
+    transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-royal-gold/70
+    active:scale-95 cursor-pointer;
+  }
+
+  .card-luxury {
+    @apply bg-gradient-to-br from-royal-darkred/90 to-royal-black/95 backdrop-blur-sm
+    border border-royal-gold/20 rounded-lg p-6 transition-all duration-500
+    hover:border-royal-gold/50 hover:shadow-2xl hover:shadow-royal-gold/20
+    hover:-translate-y-2;
+  }
+
+  .section-padding {
+    @apply px-4 py-16 md:px-8 lg:px-16 xl:px-24 2xl:px-32;
+  }
+
+  .heading-primary {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-transparent
+    bg-clip-text bg-gradient-to-r from-royal-gold via-royal-cream to-royal-gold
+    animate-gradient;
+  }
+
+  .heading-secondary {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-royal-gold;
+  }
+
+  .pattern-nepali {
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px),
+      repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(220, 20, 60, 0.02) 10px, rgba(220, 20, 60, 0.02) 20px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8B0000, #D4AF37);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #DC143C, #D4AF37);
+}
+
+/* Selection */
+::selection {
+  background: #D4AF37;
+  color: #0A0A0A;
+}
+
+/* Loading animation */
+.loader {
+  border: 3px solid rgba(212, 175, 55, 0.2);
+  border-top: 3px solid #D4AF37;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Parallax smooth */
+.parallax {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
